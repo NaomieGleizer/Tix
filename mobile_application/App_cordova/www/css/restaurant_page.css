@@ -1,7 +1,13 @@
+.logo {
+  text-align:center;
+}
 .wrapper {
     height: 100%;
-    margin-top: 15%;
+    margin-top: auto;
     margin-bottom:10%;
+    margin-left:auto;
+    margin-right:auto;
+    width:95%;
 }
 
 h1 {
@@ -11,43 +17,61 @@ h1 {
     color: #0f7f6a;
 }
 
-table {
-    text-align: right;
-    font-family: 'Segoe UI';
-    border-collapse: collapse;
-    width: 95%;
-    height: 100%;
-    direction: rtl;
-    margin: auto;
-    font-size: 200%;
+#menu {
+  margin-top:5%;
+  height:100%;
+}
+
+.item_div {
+  display:flex;
+  width:100%;
+  direction:rtl;
+  height:13%;
+  text-align:right;
+
 }
 
 .category_name {
     color: #06281c;
-    font-size: 120%;
+    font-size:300%;
     text-align: center;
+    height:5%;
 }
 
-.item_name, .item_price {
-    border: none;
+.item_name {
     color: #0a563c;
+    width:25%;
+    font-size:250%;
+    margin: 2%;
+}
+
+.item_price {
+    color: #0a563c;
+    width:15%;
+    font-size:250%;
+    margin: 2%;
 }
 
 .item_description {
     border: none;
     color: #196e51;
-    font-size: 80%;
+    font-size:200%;
     width: 50%;
     margin: 2%;
 }
 
-td {}
-
-
 .add {
+  width:10%;
+  margin: 2%;
+}
+
+
+.add_btn {
     border-radius: 15px;
-    height: 30%;
+    height: 50%;
+    width:100%;
     text-align:center;
+    font-size:250%;
 }
 
 #button_bottom {
@@ -78,8 +102,20 @@ td {}
   margin-right: 2%;
 }
 
-.my_order {
-   width:100%; 
-   text-align:right;
-   margin-right:2%;
+.top_btn {
+  width :95%;
+  margin:auto;
+  height:5%;
+  direction:rtl;
+  display:flex;
+}
+
+#my_order {
+   margin-left:auto;
+   height:100%;
+}
+
+#exit {
+  margin-right:auto;
+  height:100%;  
 }

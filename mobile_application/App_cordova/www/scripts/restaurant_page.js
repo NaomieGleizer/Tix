@@ -15,32 +15,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
             welcome.innerHTML = " ברוכים הבאים ל" + restaurant_name;
             menu = JSON.parse(data.menu);
             console.log(menu);
-            var table = document.getElementById("menu_table");
+            var div_menu = document.getElementById("menu");
             var index_row = 0;
             for (i in menu.categories) {
-                console.log(i);
+                var category_div = document.createElement("div");
                 var category = menu.categories[i];
-                var row = table.insertRow(index_row);
+                category_div.className = "category_name";
+                category_div.innerHTML = category.name;
+                div_menu.appendChild(category_div);
                 index_row += 1;
-                var cell = row.insertCell(0);
-                cell.className = "category_name";
-                cell.colSpan = 4;
-                cell.innerHTML = category.name;
 
                 for (j in category.menu_items) {
-                    var row = table.insertRow(index_row);
-                    index_row += 1;
-                    var cell = row.insertCell(0);
-                    cell.className = "item_name";
-                    cell.innerHTML = category.menu_items[j].name;
-                    cell = row.insertCell(1);
-                    cell.className = "item_description";
-                    cell.innerHTML = category.menu_items[j].description;
-                    cell = row.insertCell(2);
-                    cell.className = "item_price";
-                    cell.innerHTML = category.menu_items[j].price + "₪";
-                    cell = row.insertCell(3);
-                    cell.innerHTML = '<button class="add">+</button>';
+                    var item_div = document.createElement("div");
+                    item_div.className="item_div";
+                    div_menu.appendChild(item_div);
+                    var item_name = document.createElement("div");
+                    item_name.className = "item_name";
+                    item_name.innerHTML = category.menu_items[j].name;
+                    item_div.appendChild(item_name);                   
+                    var item_description = document.createElement("div");
+                    item_description.className = "item_description";
+                    item_description.innerHTML = category.menu_items[j].description;
+                    item_div.appendChild(item_description);
+                   
+                    var item_price = document.createElement("div");
+                    item_price.className = "item_price";
+                    item_price.innerHTML = category.menu_items[j].price + "₪";
+                    item_div.appendChild(item_price);
+                    var item_add_btn = document.createElement("div");
+                    item_add_btn.className = "add";
+                    item_add_btn.innerHTML = '<button class="add_btn">+</button>';
+                    item_div.appendChild(item_add_btn);
                 }
 
             }
