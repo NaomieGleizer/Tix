@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tix</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/> 
+</head>
+<body>
+    <h1>Tix</h1>
+    <h2>Digital menus and orders</h2>
+    
+    <div class="center">
+        <p><button id="add_new_restaurant">הוספת מסעדה</button></p>
+        <p><button id="update_restaurant_details">עדכון פרטי מסעדה</button></p>
+    </div>
+     <script>
+         document.getElementById("add_new_restaurant")
+             .addEventListener("click", function (e) {
+                 const ipc = require('electron').ipcRenderer;
+                 // send massage to main process - load adding restaurant page 
+                 ipc.send('load-page', 'file://' + __dirname + '/adding_restaurant.html');
+             });
+         document.getElementById("update_restaurant_details")
+             .addEventListener("click", function (e) {
+                 const ipc = require('electron').ipcRenderer;
+                 // send massage to main process - load adding restaurant page 
+                 ipc.send('load-page', 'file://' + __dirname + '/get_restaurants.html');
+             });
+  </script>
+</body>
+</html>
+

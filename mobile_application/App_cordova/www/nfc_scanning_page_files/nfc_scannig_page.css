@@ -1,0 +1,44 @@
+﻿.wrapper {
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'Segoe UI';
+    background: #adeaed21;
+}
+
+h1 {
+    font-size: 70px;
+    color: #40c7b5;
+    text-align: center;
+    font-family: 'Segoe UI';
+    margin: 0%;
+}
+
+.logo_home {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    background-color: transparent;
+    color: deepskyblue;
+    font-family: 'Segoe UI';
+    width: 100%;
+    text-align: center;
+    font-size: 130%;
+    height: 5%;
+}
+
+#mobile {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+}
+
+#table {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

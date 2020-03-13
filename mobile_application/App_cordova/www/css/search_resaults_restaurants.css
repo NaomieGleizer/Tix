@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
+#resaults {
+    width:95%;
+    height:100%;
+    font-family: 'Segoe UI';
+    margin:auto;
+    margin-top:3%;
+}
+
+.items_found {
+    font-size:medium;
+    text-align:right;
+    color:#00bc9a;
+}
+
+
+.row {
+    margin:auto;
+    margin-top:5%;
+    box-sizing: border-box;
+    position: relative;
+    text-align:center;
+    height:30%;
+}
+
+a{
+    color:black;
+    text-decoration:none;
+}
+
+.restaurant_details_wrapper {
+    width:90%;
+    font-family: TakeawaySans, sans-serif;
+    background-color: rgb(255, 255, 255);
+    padding:5%;
+    border-radius: 7px;
+    overflow: hidden;
+    flex: 1 1 0%;
+    height:100%;
+    margin:auto;
+}
+
+.restaurant_name_div{
+    font-size: 20px;
+    font-weight: bold;
+    height: 23px;
+    color: rgb(1, 130, 127);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.restaurant_address_div{
+    font-size: 15px;
+    height: 23px;
+    color: rgb(1, 130, 127);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top:1%;
+}

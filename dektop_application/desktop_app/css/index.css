@@ -1,0 +1,149 @@
+﻿body {
+    background-color: white;
+    border: #66CDAA;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    color: #66CDAA;
+    text-align: center;
+    font-family: 'Segoe UI';
+}
+
+h2 {
+    color: #66CDAA;
+    text-align: center;
+    font-family: 'Segoe UI';
+}
+
+h5 {
+    color: #66CDAA;
+    text-align: center;
+    font-family: 'Segoe UI';
+    display: inline-block;
+}
+
+button {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    display: block;
+    margin: auto;
+    border: 2px solid #66CDAA;
+    border-radius: 8px;
+    padding: 12px 28px;
+}
+
+.center {
+    margin: auto;
+    width: 40%;
+    display: block;
+    padding: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    right: 50%;
+}
+
+.button {
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Segoe UI';
+    display: block;
+    margin: auto;
+    border: 2px solid #66CDAA;
+    border-radius: 8px;
+    padding: 12px 28px;
+    text-decoration: none;
+  
+}
+
+.button:hover {
+    background-color: #F0FFFF; 
+   
+}
+
+a:hover, a:active {
+    background-color: #F0FFFF;
+}
+
+label {
+    font-family: 'Segoe UI';
+    text-align: center;
+    display: inline-block;
+}
+
+form {
+    margin: auto;
+    width: 60%;
+    display: block;
+    padding: 20px;
+    padding-right: 0px;
+    margin-right: 0px;
+}
+
+.center_form {
+    margin: auto;
+    width: 100%;
+    display: block;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 50%;
+    margin-top: 0px;
+}
+
+a {
+    color: #66CDAA;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    display: inline-block;
+    margin: auto;
+    text-decoration: none;
+
+}
+
+#submit {
+    color: #66CDAA;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    display: inline-block;
+    margin: auto;
+}
+
+#reset {
+    color: #66CDAA;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    display: inline-block;
+    margin: auto;
+}
+
+#menu {
+    color: #66CDAA;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    display: inline-block;
+    margin: auto;
+}
+
+#confirm_tabels {
+    background-color: #66CDAA;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Segoe UI';
+    display: inline-block;
+    margin: auto;
+    border-radius: 8px;
+    padding: 10px 24px;
+    text-decoration: none;
+}

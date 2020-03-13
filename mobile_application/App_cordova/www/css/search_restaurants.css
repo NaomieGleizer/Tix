@@ -1,0 +1,120 @@
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    height:100%;
+}
+
+.searchTerm {
+    width: 80%;
+    height:100%;
+    border: 2px solid #00ffd0;
+    padding: 5px;
+    border-radius: 7px;
+    outline: none;
+    text-align: right;
+    background: aliceblue;
+}
+
+    .searchTerm:focus {
+        color: #00B4CC;
+    }
+
+.searchButton {
+    width: 18%;
+    background: #00ffd0;
+    text-align: center;
+    border-radius: 7px;
+    cursor: text;
+    font-size: 120%;
+    margin-right: 2%;
+    font-family: inherit;
+    border: #00ffd0;
+    color: white;
+}
+
+.wrap_search {
+    height:6%;
+    width: 95%;
+    margin-top: 5%;
+    margin: auto;
+}
+
+.logo_home {
+    border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    background: url("../images/logo.png");
+    color: deepskyblue;
+    font-family: 'Segoe UI';
+    width: 100%;
+    text-align: center;
+    font-size: 130%;
+    height: 5%;
+}
+
+.logo {
+    height: 10%;
+    margin-left: 2%;
+}
+
+.wrap_categories {
+    display: block;
+    height: 100%;
+    -webkit-writing-mode: vertical-lr;
+    width: 100%;
+}
+
+.coffee,.italian, .asian, .fish, .meat, .home_food {
+    width: 41%;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    margin-top: 5%;
+    height: 20%;
+    border-radius: 35px;
+    background: #00ffd0;
+    /* opacity: 60%; */
+    color: white;
+}
+
+.coffee {
+    background-image: url("../images/coffee-cup-icon-white.png");
+    background-size: 35%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.italian {
+    background-image: url("../images/pizza.png");
+    background-size:30%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.asian {
+    background-image: url("../images/sushi.png");
+    background-size:38%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.meat {
+    background-image: url("../images/hamburger.png");
+    background-size:35%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.fish {
+    background-image: url("../images/fish.png");
+    background-size:35%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.home_food {
+    background-image: url("../images/home.png");
+    background-size:30%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}

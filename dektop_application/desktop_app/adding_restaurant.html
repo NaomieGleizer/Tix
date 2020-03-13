@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Adding restaurant</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script src="adding_restaurant.js"></script>
+</head>
+<body>
+    <h1>Tix </h1>
+    <h2>צירוף חברה חדשה  </h2>
+    <div class="center_form">
+        <form id="adding_form">  
+            <input type="text" dir="rtl" id="rname" name="rname"/>  <label for="rname">שם המסעדה</label><p/> 
+            <input type="text" dir="rtl" id="street" name="street"/>  <label for="street">כתובת</label><p/> 
+            <input type="text" dir="rtl" id="city" name="city"/>  <label for="city">עיר</label><p/>
+            <input type="text" dir="rtl" id="owner_name" name="owner_name"/>  <label for="fname">שם מנהל המסעדה</label><p/>  
+            <input type="email" id="email" name="email"/>  <label for="email">דואר אלקטרוני</label><p/>  
+            <input type="text" id="phone" name="phone"/>  <label for="phone">מספר טלפון</label><p/>  
+
+            <label for="menu">צירוף תפריט מסעדה</label><p/>
+            <input type="file" id="menu" name="menu" /><p/>
+            <input type="password" id="password" name="password"/>  <label for="password">סיסמא</label><p/>
+            <input type="text" id="tabels_mumber" name="tabels_mumber"/>  <label for="tabels_mumber">מספר שולחנות</label><p/>  
+            <button type="button" id="confirm_tabels"> אישור מספר שולחנות</button><p/>
+            <div id="adding_tabels"></div><p/> 
+            <button type="button" id="submit">צירוף חברה </button><p/> 
+            <input type="reset" id="reset" value="איפוס"/>
+            <p><a href="index.html">בחזרה לעמוד הראשי</a></p>
+        </form>
+    </div>
+</body>
+</html>

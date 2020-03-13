@@ -1,0 +1,10 @@
+{
+  "name": "desktop_app",
+  "version": "0.0.0",
+  "description": "desktop_app",
+  "main": "app.js",
+  "author": {
+    "name": "naomie"
+  },
+  "dependencies": { "electron": "8.0.2" }
+}
