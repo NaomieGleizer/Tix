@@ -8,16 +8,16 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="mysqlbgnh123",
+    host="sql7.freemysqlhosting.net",
+    user="sql7328019",
+    passwd="Vdm72IWFyD",
     auth_plugin='mysql_native_password',
-    database="Restaurents"
+    database="sql7328019"
 )
 
 mycursor = mydb.cursor()
 
-db_names = ["id", "name", "address_street", "address_city", "owner_name", "email", "phone_number", "menu"]
+db_names = ["id", "name", "address_street", "address_city", "owner_name", "owner_email", "phone_number", "menu"]
 
 
 @app.route('/add_restaurant',methods=['POST'])
@@ -26,21 +26,48 @@ def add_restaurant():
     address_street = request.form['street']
     address_city = request.form['city']
     owner_name = request.form['owner_name']
-    email = request.form['email']
+    owner_email = request.form['email']
     phone_number = request.form['phone']
-    menu = request.files['menu'].read()
+    owner_phone = request.form['owner_phone']
+    menu = json.loads(request.files['menu'].read().decode())
 
-    sql = "INSERT INTO restaurant_details (name, address_street, address_city, owner_name, email, phone_number, menu)" \
-          " VALUES ( %s, %s, %s, %s, %s, %s, %s)"
-    val = (restaurant_name, address_street, address_city, owner_name, email, phone_number, menu)
-    mycursor.execute(sql, val)
+    command = "INSERT INTO Restaurant (name, address_street, address_city, phone_number, owner_name, owner_email, " \
+          "owner_phone)" " VALUES ( %s, %s, %s, %s, %s, %s, %s)"
+    val = (restaurant_name, address_street, address_city, phone_number, owner_name, owner_email, owner_phone)
+    mycursor.execute(command, val)
     mydb.commit()
+
+    restaurant_id = mycursor.lastrowid
+
+    for category in menu['categories']:
+        category_name = category['name']
+        menu_items = category['menu_items']
+        for item in menu_items:
+            command = "INSERT INTO menu_item (category, item_name, item_price, restaurant_id)" "VALUES (%s, %s, %s, %s)"
+            item_name = item['name']
+            item_price = item['price']
+            val = (category_name, item_name, item_price, restaurant_id)
+            mycursor.execute(command, val)
+            mydb.commit()
+            if 'description' in item:
+                item_description = item['description']
+                command = "UPDATE menu_item SET item_description ='"+item_description+"' WHERE id = '" +str(mycursor.lastrowid) +"'"
+                mycursor.execute(command)
+                mydb.commit()
+            if 'sizes' in item:
+                item_sizes = item['sizes']
+                command = "UPDATE menu_item SET item_sizes ='"+item_sizes+"' WHERE id = '" +str(mycursor.lastrowid) +"'"
+                val = (item_sizes)
+                mycursor.execute(command)
+                mydb.commit()
+
+
     return "Restaurant added successfully"
 
 
 @app.route('/get_restaurants', methods=['GET'])
 def get_restaurant():
-    mycursor.execute("SELECT * FROM restaurant_details")
+    mycursor.execute("SELECT * FROM Restaurant")
     myresult = mycursor.fetchall()
     return json.dumps(myresult)
 
