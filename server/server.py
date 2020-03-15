@@ -15,13 +15,14 @@ mydb = mysql.connector.connect(
     database="sql7328019"
 )
 
-mycursor = mydb.cursor()
+mycursor = mydb.cursor(dictionary=True)
 
 db_names = ["id", "name", "address_street", "address_city", "owner_name", "owner_email", "phone_number", "menu"]
 
 
 @app.route('/add_restaurant',methods=['POST'])
 def add_restaurant():
+    # get data from form
     restaurant_name = request.form['rname']
     address_street = request.form['street']
     address_city = request.form['city']
@@ -31,22 +32,29 @@ def add_restaurant():
     owner_phone = request.form['owner_phone']
     menu = json.loads(request.files['menu'].read().decode())
 
+    # insert restaurant to table
     command = "INSERT INTO Restaurant (name, address_street, address_city, phone_number, owner_name, owner_email, " \
           "owner_phone)" " VALUES ( %s, %s, %s, %s, %s, %s, %s)"
     val = (restaurant_name, address_street, address_city, phone_number, owner_name, owner_email, owner_phone)
     mycursor.execute(command, val)
     mydb.commit()
-
     restaurant_id = mycursor.lastrowid
 
     for category in menu['categories']:
         category_name = category['name']
+        # insert category to table
+        command = "INSERT INTO categories (category_name, restaurant_id)" "VALUES (%s, %s)"
+        val = (category_name, restaurant_id)
+        mycursor.execute(command, val)
+        mydb.commit()
+        category_id = mycursor.lastrowid
+        # insert items to table
         menu_items = category['menu_items']
         for item in menu_items:
-            command = "INSERT INTO menu_item (category, item_name, item_price, restaurant_id)" "VALUES (%s, %s, %s, %s)"
+            command = "INSERT INTO menu_item (item_name, item_price, category_id)" "VALUES (%s, %s, %s)"
             item_name = item['name']
             item_price = item['price']
-            val = (category_name, item_name, item_price, restaurant_id)
+            val = (item_name, item_price, category_id)
             mycursor.execute(command, val)
             mydb.commit()
             if 'description' in item:
@@ -75,11 +83,32 @@ def get_restaurant():
 @app.route('/identify_restaurant_nfc', methods=['GET'])
 @cross_origin(origin="*")
 def identify_restaurant_nfc():
-    mycursor.execute("SELECT name, menu FROM restaurant_details WHERE id=6")
+    # get restaurant
+    # change id for test!!
+    mycursor.execute("SELECT id, name FROM Restaurant WHERE id=4")
     myresult = mycursor.fetchall()
-    keys=["name", "menu"]
-    dictionary = dict(zip(keys, myresult[0]))
-    return json.dumps(dictionary)
+    restaurant_id = myresult[0]['id']
+    restaurant_name = myresult[0]['name']
+    dict = {}
+    dict['restaurant_name'] = restaurant_name
+    categories = []
+    # menu_items={}
+    # dict['name'] = restaurant_name
+    # get categories
+    mycursor.execute("SELECT id, category_name FROM categories WHERE restaurant_id=" + str(restaurant_id))
+    myresult = mycursor.fetchall()
+    for category in myresult:
+        category_dict = {}
+
+        category_id = category['id']
+        category_name = category['category_name']
+        category_dict['name']= category_name
+        mycursor.execute("SELECT item_name, item_description, item_sizes, item_price FROM menu_item WHERE category_id=" + str(category_id))
+        myresult = mycursor.fetchall()
+        category_dict['menu_items'] = myresult
+        categories.append(category_dict)
+    dict['categories']= categories
+    return json.dumps(dict)
 
 
 @app.route('/restaurants_search', methods=['GET'])

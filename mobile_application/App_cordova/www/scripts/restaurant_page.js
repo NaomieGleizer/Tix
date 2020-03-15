@@ -11,15 +11,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var data = JSON.parse(xhr.responseText);
             var welcome = document.getElementById("welcome");
-            restaurant_name = data.name;
+            restaurant_name = data.restaurant_name;
             welcome.innerHTML = " ברוכים הבאים ל" + restaurant_name;
-            menu = JSON.parse(data.menu);
-            console.log(menu);
             var div_menu = document.getElementById("menu");
             var index_row = 0;
-            for (i in menu.categories) {
+            for (i in data.categories) {
                 var category_div = document.createElement("div");
-                var category = menu.categories[i];
+                var category = data.categories[i];
                 category_div.className = "category_name";
                 category_div.innerHTML = category.name;
                 div_menu.appendChild(category_div);
@@ -46,17 +44,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     // item name        
                     var item_name = document.createElement("div");                 
                     item_name.className = "item_name";
-                    item_name.innerHTML = category.menu_items[j].name;
+                    item_name.innerHTML = category.menu_items[j].item_name;
                     name_price_div.appendChild(item_name);    
                     // item price  
                     var item_price = document.createElement("div");
                     item_price.className = "item_price";
-                    item_price.innerHTML = category.menu_items[j].price + "₪";
+                    item_price.innerHTML = category.menu_items[j].item_price + "₪";
                     name_price_div.appendChild(item_price);   
                     // item description                            
                     var item_description = document.createElement("div");
                     item_description.className = "item_description";
-                    item_description.innerHTML = category.menu_items[j].description;
+                    item_description.innerHTML = category.menu_items[j].item_description;
                     item_content.appendChild(item_description);
        
                 }
