@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 resaults.appendChild(row);
                 
                 var restaurant_box_wrapper = document.createElement("a");
-                restaurant_box_wrapper.href = "";
+                restaurant_box_wrapper.href = "restaurant_page?";
                 row.appendChild(restaurant_box_wrapper);
 
                 var restaurant_details_wrapper = document.createElement("div");
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
                 var restaurant_name_div = document.createElement("div");
                 restaurant_name_div.className = "restaurant_name_div";
-                var restaurant_name = data[i].name;
+                var restaurant_name = data[i].restaurant_name;
                 restaurant_name_div.innerHTML = restaurant_name;
                 restaurant_details_wrapper.appendChild(restaurant_name_div);
 

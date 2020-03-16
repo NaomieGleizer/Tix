@@ -1,30 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <script src="scripts/restaurant_page.js" style="font-size:x-large"></script>
-    <link rel="stylesheet" type="text/css" href="css/restaurant_page.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/search_restaurants.css">
     <link rel="stylesheet" type="text/css" href="css/basic.css">
+    <script src="scripts/search_restaurants.js"></script>
+    <title></title>
 </head>
 <body>
-<!--     <div class="logo">
+    <a href="index.html">
         <img class="logo" src="../images/logo.png" />
-    </div> -->
-    <div class="wrapper">
-        <div class="top_btn">
-            <button id="my_order" onclick="location.href= 'nfc_scanning_page.html';">ההזמנה שלי</button>
-             <img class="logo" src="../images/logo.png" />
-            <button id="exit" onclick="location.href= 'nfc_scanning_page.html';">התנתקות</button>
-        </div>
-        <h1 id="welcome">ברוכים הבאים ל</h1>
-
-        <div id="menu"></div>
-
-        <div id="button_bottom">
-            <button id="order" onclick="location.href= 'nfc_scanning_page.html';">הזמן</button>
-            <button id="pay" onclick="location.href= 'nfc_scanning_page.html';">עבור לתשלום</button>
-        </div>
-
+    </a>
+   <div class="wrap_search">
+       <div class="search">
+          <button type="submit" id="searchButton" class="searchButton">חפש</button>
+          <input type="text" id="searchTerm" class="searchTerm" placeholder="הכנס שם מסעדה/יישוב">
+       </div>
     </div>
+    <div class="restaurant_details_div"></div>
 </body>
 </html>

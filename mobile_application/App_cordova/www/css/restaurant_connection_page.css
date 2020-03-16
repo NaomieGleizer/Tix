@@ -10,18 +10,19 @@
     margin-left:auto;
     margin-right:auto;
     width:95%;
+    display:block;
 }
 
 #welcome {
-    margin-top:2%;
+    margin-top:5%;
     text-align: center;
     font-family: 'Segoe UI';
-    font-size: -webkit-xxx-large;
+    font-size: 350%;
     color: #00b593;
 }
 
 #menu {
-  margin-top:5%;
+  margin-top:10%;
   height:100%;
   color:#02c09d;
 }
@@ -86,11 +87,12 @@
 }
 
 #button_bottom {
-    height: 5%;
+    height: 7%;
     width: 100%;
     text-align:center;
     margin-bottom: 1%;
-    position:
+    display:flex;
+
 }
 
 .sticky {
@@ -100,14 +102,16 @@
 }
 
 #pay {
-  width:25%;
+  width:-webkit-fill-available;
   height:-webkit-fill-available;
+  font-size:-webkit-xxx-large;
+  margin-left:2%;
 }
 
 #order {
-  width:50%;
+  width:-webkit-fill-available;
   height:-webkit-fill-available;
-  margin-right: 2%;
+  font-size:-webkit-xxx-large;
 }
 
 .top_btn {
