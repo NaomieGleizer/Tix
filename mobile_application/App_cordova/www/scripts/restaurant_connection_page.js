@@ -14,14 +14,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
             restaurant_name = data.restaurant_name;
             welcome.innerHTML = " ברוכים הבאים ל" + restaurant_name;
             var div_menu = document.getElementById("menu");
-            var index_row = 0;
             for (i in data.categories) {
                 var category_div = document.createElement("div");
                 var category = data.categories[i];
                 category_div.className = "category_name";
                 category_div.innerHTML = category.name;
                 div_menu.appendChild(category_div);
-                index_row += 1;
 
                 for (j in category.menu_items) {
                     // item div wrapper - contains 2 div- item and add botton

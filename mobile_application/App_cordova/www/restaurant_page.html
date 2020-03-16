@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/search_restaurants.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/basic.css">
-    <script src="scripts/search_restaurants.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/restaurant_page.css">
+    <link rel="stylesheet" type="text/css" href="css/restaurant_connection_page.css">
+    <link rel="stylesheet" type="text/css" href="css/search_restaurants.css">    
+    <script src="scripts/restaurant_page.js"></script>
     <title></title>
 </head>
 <body>
@@ -17,6 +19,10 @@
           <input type="text" id="searchTerm" class="searchTerm" placeholder="הכנס שם מסעדה/יישוב">
        </div>
     </div>
-    <div class="restaurant_details_div"></div>
+    <div class="restaurant_details_div">
+        <div id="restaurant_name"></div>
+        <div id="restaurant_address"></div>
+        <div id="menu"></div>
+    </div>
 </body>
 </html>

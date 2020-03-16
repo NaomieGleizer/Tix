@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 resaults.appendChild(row);
                 
                 var restaurant_box_wrapper = document.createElement("a");
-                restaurant_box_wrapper.href = "restaurant_page?";
                 row.appendChild(restaurant_box_wrapper);
 
                 var restaurant_details_wrapper = document.createElement("div");
@@ -42,9 +41,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 var restaurant_address_div = document.createElement("div");
                 restaurant_address_div.className = "restaurant_address_div";
                 var restaurant_address = data[i].address_street + " " + data[i].address_city;
-                console.log(restaurant_address);
                 restaurant_address_div.innerHTML = restaurant_address;
-                restaurant_details_wrapper.appendChild(restaurant_address_div);                
+                restaurant_details_wrapper.appendChild(restaurant_address_div);  
+
+                var restaurant_phone_div = document.createElement("div");
+                restaurant_phone_div.className = "restaurant_phone_div";
+                var phone = data[i].phone_number;
+                restaurant_phone_div.innerHTML = phone;
+                restaurant_details_wrapper.appendChild(restaurant_phone_div);
+                  
+                var strJSON = encodeURIComponent(JSON.stringify(data[i].categories));
+                restaurant_box_wrapper.href = "restaurant_page.html?name=" + restaurant_name + "&address="
+                + restaurant_address + "&menu=" + strJSON;
                 
             }
             

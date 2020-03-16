@@ -1,6 +1,8 @@
-.logo {
+#logo {
   text-align:center;
-  height:auto;
+  height:100%;
+  width:25%;
+  margin:auto;
 }
 
 .wrapper {
@@ -17,7 +19,6 @@
     margin-top:5%;
     text-align: center;
     font-family: 'Segoe UI';
-    font-size: 350%;
     color: #00b593;
 }
 
@@ -28,7 +29,7 @@
 }
 
 .item_div {
-  margin-top:3%;
+  margin-top:5%;
   display:flex;
   width:100%;
   direction:rtl;
@@ -46,9 +47,10 @@
 .category_name {
   text-decoration-line:overline;
   text-decoration-style:dotted;
-  font-size:300%;
+  font-size:large;
   text-align: center;
   height:5%;
+  margin-top:5%;
 }
 
 .name_price_div {
@@ -56,19 +58,16 @@
 }
 
 .item_name {
-  font-size:250%;
   text-align:right;
 }
 
 .item_price {
   margin-right:auto;
-  font-size:250%;
-  text-align:left;
+  direction:ltr;
 }
 
 .item_description {
   color: #0f7f6a; 
-  font-size:200%;
 }
 
 .add {
@@ -83,7 +82,6 @@
     height: 80%;
     width:100%;
     text-align:center;
-    font-size:250%;
 }
 
 #button_bottom {
@@ -92,6 +90,7 @@
     text-align:center;
     margin-bottom: 1%;
     display:flex;
+    font-size:small;
 
 }
 
@@ -104,14 +103,12 @@
 #pay {
   width:-webkit-fill-available;
   height:-webkit-fill-available;
-  font-size:-webkit-xxx-large;
   margin-left:2%;
 }
 
 #order {
   width:-webkit-fill-available;
   height:-webkit-fill-available;
-  font-size:-webkit-xxx-large;
 }
 
 .top_btn {
@@ -119,7 +116,7 @@
   height:10%;
   direction:rtl;
   display:flex;
-  font-size:150%;
+  font-size:small;
 }
 
 #my_order {
