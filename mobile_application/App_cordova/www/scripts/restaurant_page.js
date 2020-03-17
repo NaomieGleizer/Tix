@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const urlParams = new URLSearchParams(queryString);
     const restaurant_name = urlParams.get('name');
     const restaurant_address = urlParams.get('address');
+    const restaurant_phone = urlParams.get('phone');
     const restaurant_menu = JSON.parse(urlParams.get('menu'));
 
     var restaurant_name_div = document.getElementById("restaurant_name");
@@ -10,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     var restaurant_address_div = document.getElementById("restaurant_address");
     restaurant_address_div.innerHTML = restaurant_address;
+
+    var restaurant_phone_div = document.getElementById("restaurant_phone");
+    restaurant_phone_div.innerHTML = restaurant_phone;
 
     var menu_div = document.getElementById("menu");
     console.log(restaurant_menu);

@@ -37,7 +37,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 var restaurant_name = data[i].restaurant_name;
                 restaurant_name_div.innerHTML = restaurant_name;
                 restaurant_details_wrapper.appendChild(restaurant_name_div);
-
+                
+                var restaurant_type_div = document.createElement("div");
+                restaurant_type_div.className = "restaurant_type_div";
+                var type = data[i].type;
+                restaurant_type_div.innerHTML = type;
+                restaurant_details_wrapper.appendChild(restaurant_type_div);
+                
                 var restaurant_address_div = document.createElement("div");
                 restaurant_address_div.className = "restaurant_address_div";
                 var restaurant_address = data[i].address_street + " " + data[i].address_city;
@@ -52,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                   
                 var strJSON = encodeURIComponent(JSON.stringify(data[i].categories));
                 restaurant_box_wrapper.href = "restaurant_page.html?name=" + restaurant_name + "&address="
-                + restaurant_address + "&menu=" + strJSON;
+                + restaurant_address + "&phone=" + phone + "&menu=" + strJSON;
                 
             }
             

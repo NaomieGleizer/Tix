@@ -12,7 +12,16 @@
     <h2>צירוף חברה חדשה  </h2>
     <div class="center_form">
         <form id="adding_form">  
-            <input type="text" dir="rtl" id="rname" name="rname"/>  <label for="rname">שם המסעדה</label><p/> 
+            <input type="text" dir="rtl" id="rname" name="rname"/>  <label for="rname">שם המסעדה</label><p/>
+            <select name="select_type">
+                <option value="בית קפה">בית קפה</option>
+                <option value="אסיאתי">אסיאתי</option>
+                <option value="דגים">דגים</option>
+                <option value="איטלקי">איטלקי</option>
+                <option value="בשרים">בשרים</option>
+                <option value="אוכל ביתי">אוכל ביתי</option>
+            </select>
+            <label for="select_type">סוג המסעדה</label><p/>           
             <input type="text" dir="rtl" id="street" name="street"/>  <label for="street">כתובת</label><p/> 
             <input type="text" dir="rtl" id="city" name="city"/>  <label for="city">עיר</label><p/>
             <input type="text" id="phone" name="phone"/>  <label for="phone">מספר טלפון המסעדה</label><p/> 

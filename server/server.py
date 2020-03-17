@@ -24,6 +24,7 @@ db_names = ["id", "name", "address_street", "address_city", "owner_name", "owner
 def add_restaurant():
     # get data from form
     restaurant_name = request.form['rname']
+    restaurant_type = request.form.get('select_type')
     address_street = request.form['street']
     address_city = request.form['city']
     owner_name = request.form['owner_name']
@@ -33,9 +34,9 @@ def add_restaurant():
     menu = json.loads(request.files['menu'].read().decode())
 
     # insert restaurant to table
-    command = "INSERT INTO Restaurant (name, address_street, address_city, phone_number, owner_name, owner_email, " \
-          "owner_phone)" " VALUES ( %s, %s, %s, %s, %s, %s, %s)"
-    val = (restaurant_name, address_street, address_city, phone_number, owner_name, owner_email, owner_phone)
+    command = "INSERT INTO Restaurant (name, type, address_street, address_city, phone_number, owner_name" \
+              ", owner_email, owner_phone)" " VALUES ( %s, %s, %s, %s, %s, %s, %s)"
+    val = (restaurant_name, restaurant_type, address_street, address_city, phone_number, owner_name, owner_email, owner_phone)
     mycursor.execute(command, val)
     mydb.commit()
     restaurant_id = mycursor.lastrowid
@@ -81,25 +82,7 @@ def identify_restaurant_nfc():
     # change id for test!!
     mycursor.execute("SELECT id, name FROM Restaurant WHERE id=5")
     myresult = mycursor.fetchall()
-    # restaurant_id = myresult[0]['id']
-    # restaurant_name = myresult[0]['name']
-    # dict = {}
-    # dict['restaurant_name'] = restaurant_name
-    # categories = []
-    # # get categories
-    # mycursor.execute("SELECT id, category_name FROM categories WHERE restaurant_id=" + str(restaurant_id))
-    # myresult = mycursor.fetchall()
-    # for category in myresult:
-    #     category_dict = {}
-    #     category_id = category['id']
-    #     category_name = category['category_name']
-    #     category_dict['name']= category_name
-    #     # get items
-    #     mycursor.execute("SELECT item_name, item_description, item_price FROM menu_item WHERE category_id=" + str(category_id))
-    #     myresult = mycursor.fetchall()
-    #     category_dict['menu_items'] = myresult
-    #     categories.append(category_dict)
-    # dict['categories']= categories
+
     return json.dumps(dict_of_restaurant_name_menu(myresult[0]))
 
 
@@ -110,32 +93,22 @@ def restaurants_search():
     search_key= request.args.get("search_key")
     # if key is empty, return all restaurants
     if not search_key:
-        command = "select id, name, address_street, address_city, phone_number from Restaurant"
-    # else, search restaurant with this name or city address
+        command = "select id, name, type, address_street, address_city, phone_number from Restaurant"
+    # else, search restaurant with this name/city address/type
     else:
-        command = "SELECT id, name, address_street, address_city, phone_number FROM Restaurant WHERE name='" \
-             + search_key + "' OR address_city='" + search_key + "'"
+        command = "SELECT id, name, type, address_street, address_city, phone_number FROM Restaurant WHERE name='" \
+             + search_key + "' OR address_city='" + search_key + "' OR type='" + search_key + "'"
     mycursor.execute(command)
     myresult = mycursor.fetchall()
     restaurants = []
     for restaurant in myresult:
         restaurant_dict = dict_of_restaurant_name_menu(restaurant)
+        restaurant_dict["type"] = restaurant['type']
         restaurant_dict["address_street"] = restaurant['address_street']
         restaurant_dict["address_city"] = restaurant['address_city']
         restaurant_dict["phone_number"] = restaurant['phone_number']
         restaurants.append(restaurant_dict)
     return json.dumps(restaurants)
-    # return json.dumps(dictionary)
-    #
-    # # search restaurant with this name or city address
-    # execute = "SELECT id, name, address_street, address_city, phone_number FROM Restaurant WHERE name='" \
-    #          + search_key + "' OR address_city='" + search_key + "'"
-    # mycursor.execute(execute)
-    # myresult = mycursor.fetchall()
-    # keys=["name", "menu", "address_street", "address_city"]
-    # dictionary = [dict(zip(keys, i)) for i in myresult]
-    # return json.dumps(dictionary)
-
 
 def dict_of_restaurant_name_menu(restaurant):
     restaurant_id = restaurant['id']

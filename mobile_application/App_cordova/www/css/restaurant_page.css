@@ -18,8 +18,17 @@ a {
     text_align:center;
 }
 
-#restaurant_address {
-    font-size:small;
+#address_and_phone {
+    display:flex;
     margin-top:2%;
-    margin:auto;
+}
+
+#restaurant_address {
+    font-size:medium;
+
+}
+
+#restaurant_phone {
+    font-size:medium;
+    margin-right:3%;
 }

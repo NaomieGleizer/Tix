@@ -12,7 +12,7 @@
 }
 
 .items_found {
-    font-size:medium;
+    font-size:large;
     text-align:right;
     color:#00ffd078;
 }
@@ -28,19 +28,16 @@
 }
 
 a{
-    color:black;
     text-decoration:none;
 }
 
 .restaurant_details_wrapper {
     width:90%;
     font-family: TakeawaySans, sans-serif;
-    background-color: #00ffd069;
+    background-color: #00ffd0d6;
     background-image:url("../images/food_background.png");
-    padding:10%;
+    padding:4%;
     border-radius: 9px;
-    overflow: hidden;
-    flex: 1 1 0%;
     height:100%;
     margin:auto;
     color:#ffffff;
@@ -50,15 +47,20 @@ a{
 .restaurant_name_div{
     font-size: 30px;
     font-weight: bold;
-    margin-top:auto;;
+    margin-bottom:3%;
+}
+
+.restaurant_type_div{
+    font-size: 20px;
+    margin-top:1%;
 }
 
 .restaurant_address_div{
     font-size: 20px;
-    margin-top:1%;;
+    margin-top:1%;
 }
 
 .restaurant_phone_div {
     font-size: 20px;
-    margin-top:1%;;
+    margin-top:1%;
 }
