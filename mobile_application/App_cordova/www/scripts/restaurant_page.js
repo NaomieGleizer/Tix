@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const restaurant_name = urlParams.get('name');
-    const restaurant_address = urlParams.get('address');
-    const restaurant_phone = urlParams.get('phone');
-    const restaurant_menu = JSON.parse(urlParams.get('menu'));
+    const restaurant_name = JSON.parse(sessionStorage.getItem("restaurant_name"));
+    const restaurant_address = JSON.parse(sessionStorage.getItem("restaurant_address"));
+    const restaurant_phone = JSON.parse(sessionStorage.getItem("restaurant_phone"));
+    const restaurant_menu = JSON.parse(sessionStorage.getItem("restaurant_menu"));
 
     var restaurant_name_div = document.getElementById("restaurant_name");
     restaurant_name_div.innerHTML = restaurant_name;
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     restaurant_phone_div.innerHTML = restaurant_phone;
 
     var menu_div = document.getElementById("menu");
-    console.log(restaurant_menu);
     for (i in restaurant_menu) {
         var category_div = document.createElement("div");
         var category = restaurant_menu[i];
@@ -43,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             // item price  
             var item_price = document.createElement("div");
             item_price.className = "item_price";
-            console.log(category.menu_items[j].item_price);
             item_price.innerHTML = category.menu_items[j].item_price + "₪";
             name_price_div.appendChild(item_price);
             // item description                            

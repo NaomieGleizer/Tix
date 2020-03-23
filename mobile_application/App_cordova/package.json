@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "cordova-ios": "4.2.0",
-    "cordova-windows": "4.4.2"
+    "cordova-windows": "4.4.2",
+    "cordova-android": "5.2.1"
   },
   "cordova": {
     "platforms": [
       "ios",
-      "windows"
+      "windows",
+      "android"
     ],
     "plugins": {
       "cordova-plugin-whitelist": {},

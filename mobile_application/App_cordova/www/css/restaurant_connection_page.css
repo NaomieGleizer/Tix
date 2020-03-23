@@ -38,6 +38,7 @@
 .item_content {
   display:block;
   width:90%;
+  margin:auto;
   margin-left:5%;
   font-size:large;
 }
@@ -89,7 +90,7 @@
   height:10%;
   direction:rtl;
   display:flex;
-  font-size:small;
+  font-size:x-small;
 }
 
 #my_order {
@@ -97,6 +98,7 @@
   margin-top:auto;
   margin-bottom:auto;
   height:50%;
+  width:35%;
 }
 
 #exit {
@@ -104,4 +106,6 @@
   margin-top:auto;
   margin-bottom:auto;
   height:50%;
+  width:35%;
+  
 }

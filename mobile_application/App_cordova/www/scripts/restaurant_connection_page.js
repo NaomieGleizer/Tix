@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const urlParams = new URLSearchParams(queryString);
     const nfc_code = urlParams.get('nfc');
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://127.0.0.1:5000/identify_restaurant_nfc", true);
+    xhr.open("GET", "http://naomiegleizer.pythonanywhere.com/identify_restaurant_nfc", true);
     // sevrver returns an answer 
     xhr.onreadystatechange = function () {
         // if server accepted request, alert and return to index page
@@ -64,6 +64,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         }
     }
+//     xhr.setRequestHeader("Origin", 'naomie');
+//     xhr.withCredentials = true;
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
     xhr.send(nfc_code);
 
     // add onclick events to buttons

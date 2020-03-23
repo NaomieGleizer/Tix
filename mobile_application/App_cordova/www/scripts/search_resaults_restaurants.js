@@ -4,14 +4,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const search_key = urlParams.get('search_key');
 
     var xhr = new XMLHttpRequest();
-    url = "http://127.0.0.1:5000/restaurants_search?search_key=" + search_key;
+    url = "http://naomiegleizer.pythonanywhere.com/restaurants_search?search_key=" + search_key;
     xhr.open("GET", url, true);
     // sevrver returns an answer 
     xhr.onreadystatechange = function () {
         // if server accepted request, alert and return to index page
         if (xhr.readyState === 4 && xhr.status === 200) {
             var data = JSON.parse(xhr.responseText);
-            console.log(data);
             var resaults = document.getElementById("resaults");
             // found resaults number
             var num_of_items_found = document.createElement("div");
@@ -56,9 +55,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 restaurant_phone_div.innerHTML = phone;
                 restaurant_details_wrapper.appendChild(restaurant_phone_div);
                   
-                var strJSON = encodeURIComponent(JSON.stringify(data[i].categories));
-                restaurant_box_wrapper.href = "restaurant_page.html?name=" + restaurant_name + "&address="
-                + restaurant_address + "&phone=" + phone + "&menu=" + strJSON;
+                sessionStorage.setItem("restaurant_name", JSON.stringify(restaurant_name));
+                sessionStorage.setItem("restaurant_address", JSON.stringify(restaurant_address));
+                sessionStorage.setItem("restaurant_phone", JSON.stringify(phone));
+                sessionStorage.setItem("restaurant_menu", JSON.stringify(data[i].categories));
+                restaurant_box_wrapper.href = "restaurant_page.html";
                 
             }
             

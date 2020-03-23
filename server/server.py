@@ -52,7 +52,7 @@ def add_restaurant():
         # insert items to table
         menu_items = category['menu_items']
         for item in menu_items:
-            command = "INSERT INTO menu_item (item_name, item_price, category_id)" "VALUES (%s, %s, %s)"
+            command = "INSERT INTO menu_items (item_name, item_price, category_id)" "VALUES (%s, %s, %s)"
             item_name = item['name']
             item_price = item['price']
             val = (item_name, item_price, category_id)
@@ -60,11 +60,9 @@ def add_restaurant():
             mydb.commit()
             if 'description' in item:
                 item_description = item['description']
-                command = "UPDATE menu_item SET item_description ='"+item_description+"' WHERE id = '" +str(mycursor.lastrowid) +"'"
+                command = "UPDATE menu_items SET item_description ='"+item_description+"' WHERE id = '" +str(mycursor.lastrowid) +"'"
                 mycursor.execute(command)
                 mydb.commit()
-
-
     return "Restaurant added successfully"
 
 
@@ -124,9 +122,9 @@ def dict_of_restaurant_name_menu(restaurant):
         category_name = category['category_name']
         category_dict['name']= category_name
         # get items
-        mycursor.execute("SELECT item_name, item_description, item_price FROM menu_item WHERE category_id=" + str(category_id))
+        mycursor.execute("SELECT item_name, item_description, item_price FROM menu_items WHERE category_id=" + str(category_id))
         myresult = mycursor.fetchall()
-        category_dict['menu_items'] = myresult
+        category_dict['menu_itemss'] = myresult
         categories.append(category_dict)
     dict['categories']= categories
     return dict

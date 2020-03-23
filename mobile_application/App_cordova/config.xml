@@ -6,11 +6,11 @@
   <vs:template-name>BlankJS</vs:template-name>
   <content src="index.html" />
   <access origin="*" />
+  <allow-navigation href="*"/>
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="10.0" />
   <!-- Support for Cordova 5.0.0 plugin system -->
   <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
-  <allow-navigation href="http://127.0.0.1:5000/*" />
   <allow-intent href="http://*/*" />
   <allow-intent href="https://*/*" />
   <allow-intent href="tel:*" />

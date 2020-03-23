@@ -1,0 +1,166 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-battery-status@~2.0.3",
+      "C:\\Users\\naomie\\Documents\\בר אילן\\פרוייקט\\Tix\\mobile_application\\App_cordova"
+    ]
+  ],
+  "_from": "cordova-plugin-battery-status@>=2.0.3-0 <2.1.0-0",
+  "_hasShrinkwrap": false,
+  "_id": "cordova-plugin-battery-status@2.0.3",
+  "_inCache": true,
+  "_integrity": "",
+  "_location": "/cordova-plugin-battery-status",
+  "_nodeVersion": "12.3.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-battery-status_2.0.3_1562090981699_0.933224058599478"
+  },
+  "_npmUser": {
+    "email": "piotrowski+npmjs.com@gmail.com",
+    "name": "sujan12"
+  },
+  "_npmVersion": "6.9.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "cordova-plugin-battery-status",
+    "raw": "cordova-plugin-battery-status@~2.0.3",
+    "rawSpec": "~2.0.3",
+    "scope": null,
+    "spec": ">=2.0.3-0 <2.1.0-0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-battery-status@~2.0.3",
+  "_where": "C:\\Users\\naomie\\Documents\\בר אילן\\פרוייקט\\Tix\\mobile_application\\App_cordova",
+  "author": {
+    "name": "Apache Software Foundation"
+  },
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
+  "cordova": {
+    "id": "cordova-plugin-battery-status",
+    "platforms": [
+      "android",
+      "browser",
+      "ios",
+      "windows"
+    ]
+  },
+  "dependencies": {},
+  "description": "Cordova Battery Plugin",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jshint": "^2.6.0"
+  },
+  "directories": {},
+  "dist": {
+    "fileCount": 23,
+    "integrity": "sha512-H1vSLWbDb/qivGPVV/sjAaDnF8VEoa1uOYdrTJpYrs9vRAe3S37y8Fa5LoBuKkspWiQ5P3D8q+iTnsPF0UAO7g==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdG53mCRA9TVsSAnZWagAASYkP/0ii41EXehMajLedhFrE\n3QTtBIxn6yCoye4PygNE4Zp4bPotz44rHBmBDK3w0oK0tU4JiiDZ+Azli5XF\n/4Eo3rHp6i771Dnb2HIH7iobGIuIUELdFnCjdoo+0Kev1waBDqOlEq+4fa4C\nsj9Zr9VDf4O8wRanv0xb+aIyutMgljXktf1yvRkA3hcj9E/rK8uHyJ9mt9Ux\nMKcJ7sjQXZmua5rsNciB0bpjqnJ1Nt+JPRBt8cZH53iNJDR9bfw33EC+QK7w\n+exr2OQkvNx2NPF+Fz4YiLH6/hXlf/HBJw3P9ez8Sh4aYDYX3mdOefOiB63E\nstJxDBxGcM11Cw7h4FYGOzrHgcVQli47mF6RXbFc/ItumnjiTh2sVRTM7D+g\nouZpNo7gSpbsdMKLVddo2bUQY1zhKj5UptmdngKvRUcg+jxJdWGtgDf2YcEs\nBfjPzxVsWmdPS+3SXc5HZnKSyn9aDBG8ibBqcocGfHaJlinpcYUsUtv1/8z6\n6KC7Nd7xk5mGgcNaOdqcCaaAGKpIbAswP0e7gsALg9XB9IykMeks1CW/IY0B\noNYuQvmxfUChkDp+a8pyoR+AD+P6rYIGdK0Wt/fz32PTxfJvakOqwgbCqHdY\nsTIE05574sOsVldxWuI0gYElXv6KPkePS2RLzHcQvryXG33XANDYBuxhulcb\npymb\r\n=lntx\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "68924b329b644ddcd76b2be7ec4e00b9801effb7",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-battery-status/-/cordova-plugin-battery-status-2.0.3.tgz",
+    "unpackedSize": 151994
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "homepage": "https://github.com/apache/cordova-plugin-battery-status#readme",
+  "installable": true,
+  "keywords": [
+    "battery",
+    "cordova",
+    "cordova-android",
+    "cordova-ios",
+    "ecosystem:cordova"
+  ],
+  "license": "Apache-2.0",
+  "maintainers": [
+    {
+      "email": "maj.fil@gmail.com",
+      "name": "filmaj"
+    },
+    {
+      "email": "anis.kadri@gmail.com",
+      "name": "anis"
+    },
+    {
+      "email": "chris@brody.consulting",
+      "name": "brodybits"
+    },
+    {
+      "email": "apachecordovabot@gmail.com",
+      "name": "cordovaowner"
+    },
+    {
+      "email": "csantana23@gmail.com",
+      "name": "csantanapr"
+    },
+    {
+      "email": "darryl@dpogue.ca",
+      "name": "dpogue"
+    },
+    {
+      "email": "erisu.dev@outlook.jp",
+      "name": "erisu"
+    },
+    {
+      "email": "bowserj@apache.org",
+      "name": "bowserj"
+    },
+    {
+      "email": "jcesarmobile@gmail.com",
+      "name": "jcesarmobile"
+    },
+    {
+      "email": "simon.macdonald@gmail.com",
+      "name": "macdonst"
+    },
+    {
+      "email": "purplecabbage@gmail.com",
+      "name": "purplecabbage"
+    },
+    {
+      "email": "shazron@gmail.com",
+      "name": "shazron"
+    },
+    {
+      "email": "stevengill97@gmail.com",
+      "name": "stevegill"
+    },
+    {
+      "email": "piotrowski+npmjs.com@gmail.com",
+      "name": "sujan12"
+    },
+    {
+      "email": "suraj.pindoria@yahoo.com",
+      "name": "surajpindoria"
+    }
+  ],
+  "name": "cordova-plugin-battery-status",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-battery-status.git"
+  },
+  "scripts": {
+    "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests",
+    "test": "npm run eslint"
+  },
+  "types": "./types/index.d.ts",
+  "version": "2.0.3"
+}

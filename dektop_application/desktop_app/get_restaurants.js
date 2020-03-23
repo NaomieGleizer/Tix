@@ -1,7 +1,7 @@
 ﻿document.addEventListener("DOMContentLoaded", function (event) {
     // open html request to server 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://127.0.0.1:5000/get_restaurants", true);
+    xhr.open("GET", "http://naomiegleizer.pythonanywhere.com/get_restaurants", true);
     // sevrver returns an answer 
     xhr.onreadystatechange = function () {
         // if server accepted request, alert and return to index page
