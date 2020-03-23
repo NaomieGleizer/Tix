@@ -21,9 +21,10 @@
 
 button {
     width: -webkit-fill-available;
-    height: 3em;
+    height: 12%;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 5%;
+    font-size:150%;
 }
     
