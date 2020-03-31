@@ -1,4 +1,3 @@
-
 h1 {
     text-align: center;
     font-family: 'Segoe UI';
@@ -16,27 +15,11 @@ h1 {
     height:100%;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    background-color: #a4efe126;
-    font-family: 'Segoe UI';
-    margin: auto;
-    display: inline-block;
-    overflow: auto;
-}
-
-
 h4 {
     color: #58e8b6;
     text-align: center;
     font-family: 'Segoe UI';
     margin: auto;
-}
-
-
-.logo {
-    height: 80%;
 }
 
 .wrapper {

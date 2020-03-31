@@ -1,27 +1,55 @@
 import mysql.connector
 import json
-
-from flask import Flask, redirect, url_for, request
+from flask import Flask, request
 from flask_cors import CORS, cross_origin
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine
+
 app = Flask(__name__)
-cors = CORS(app)
+# app.run(debug = True)
 app.config['CORS_HEADERS'] = 'Content-Type'
-
-mydb = mysql.connector.connect(
-    host="sql7.freemysqlhosting.net",
-    user="sql7328019",
-    passwd="Vdm72IWFyD",
-    auth_plugin='mysql_native_password',
-    database="sql7328019"
-)
-
-mycursor = mydb.cursor(dictionary=True)
-
-db_names = ["id", "name", "address_street", "address_city", "owner_name", "owner_email", "phone_number", "menu"]
+CORS(app)
 
 
-@app.route('/add_restaurant',methods=['POST'])
+########### MYSQL CONNECTION ############
+def connect_to_mysql():
+    mydb = mysql.connector.connect(
+        host="naomiegleizer.mysql.pythonanywhere-services.com",
+        user="naomiegleizer",
+        passwd="mysqlbgnh123",
+        auth_plugin='mysql_native_password',
+        database="naomiegleizer$Tix_db"
+    )
+
+    mycursor = mydb.cursor(dictionary=True)
+    return (mydb, mycursor)
+
+
+# SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+#     username="naomiegleizer",
+#     password="mysqlbgnh123",
+#     hostname="naomiegleizer.mysql.pythonanywhere-services.com",
+#     databasename="naomiegleizer$Tix_db",
+# )
+# app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+# app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+# mydb = SQLAlchemy(app)
+# engine = create_engine(SQLALCHEMY_DATABASE_URI)
+# connection = engine.raw_connection()
+# mycursor = connection.cursor()
+print("after db connection")
+
+
+#########################################
+
+
+# called from desktop app. add a restaurant to the db.
+@app.route('/add_restaurant', methods=['POST'])
+@cross_origin()
 def add_restaurant():
+    mydb, mycursor = connect_to_mysql()
     # get data from form
     restaurant_name = request.form['rname']
     restaurant_type = request.form.get('select_type')
@@ -35,8 +63,9 @@ def add_restaurant():
 
     # insert restaurant to table
     command = "INSERT INTO Restaurant (name, type, address_street, address_city, phone_number, owner_name" \
-              ", owner_email, owner_phone)" " VALUES ( %s, %s, %s, %s, %s, %s, %s)"
-    val = (restaurant_name, restaurant_type, address_street, address_city, phone_number, owner_name, owner_email, owner_phone)
+              ", owner_email, owner_phone)" " VALUES ( %s, %s, %s, %s, %s, %s, %s, %s)"
+    val = (
+    restaurant_name, restaurant_type, address_street, address_city, phone_number, owner_name, owner_email, owner_phone)
     mycursor.execute(command, val)
     mydb.commit()
     restaurant_id = mycursor.lastrowid
@@ -60,42 +89,71 @@ def add_restaurant():
             mydb.commit()
             if 'description' in item:
                 item_description = item['description']
-                command = "UPDATE menu_items SET item_description ='"+item_description+"' WHERE id = '" +str(mycursor.lastrowid) +"'"
+                command = "UPDATE menu_items SET item_description ='" + item_description + "' WHERE id = '" + str(
+                    mycursor.lastrowid) + "'"
                 mycursor.execute(command)
                 mydb.commit()
+            if 'sizes' in item:
+                item_sizes = item['sizes']
+                command = "UPDATE menu_items SET item_sizes ='" + item_sizes + "' WHERE id = '" + str(
+                    mycursor.lastrowid) + "'"
+                mycursor.execute(command)
+                mydb.commit()
+            if 'choices' in item:
+                item_choices = item['choices']
+                command = "UPDATE menu_items SET item_choices ='" + item_choices + "' WHERE id = '" + str(
+                    mycursor.lastrowid) + "'"
+                mycursor.execute(command)
+                mydb.commit()
+
+    mydb.close()
     return "Restaurant added successfully"
 
 
+# called from desktop app. get all restaurants.
 @app.route('/get_restaurants', methods=['GET'])
+@cross_origin()
 def get_restaurant():
+    mydb, mycursor = connect_to_mysql()
     mycursor.execute("SELECT * FROM Restaurant")
     myresult = mycursor.fetchall()
+    mydb.close()
     return json.dumps(myresult)
 
-# mobile app, return restaurant name and menu by nfc code
-@app.route('/identify_restaurant_nfc', methods=['GET'])
-@cross_origin(origin="*")
+
+@app.route('/hello', methods=['GET', 'POST', 'OPTIONS'])
+def hello():
+    print("identify")
+    return "hello2"
+
+
+# called from mobile app, return restaurant's name and menu by nfc code.
+@app.route('/identify_restaurant_nfc', methods=['GET', 'POST', 'OPTIONS'])
+# @cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+@cross_origin()
 def identify_restaurant_nfc():
     # get restaurant
-    # change id for test!!
-    mycursor.execute("SELECT id, name FROM Restaurant WHERE id=5")
+    ##change id for test!!
+    mydb, mycursor = connect_to_mysql()
+    mycursor.execute("SELECT id, name FROM Restaurant WHERE id=4")
     myresult = mycursor.fetchall()
-
+    mydb.close()
     return json.dumps(dict_of_restaurant_name_menu(myresult[0]))
 
 
-# mobile app, search page, return restaurant with the given key search
+# called from mobile app, search page, return restaurant with the given key search
 @app.route('/restaurants_search', methods=['GET'])
-@cross_origin(origin="*")
+@cross_origin()
 def restaurants_search():
-    search_key= request.args.get("search_key")
+    mydb, mycursor = connect_to_mysql()
+    search_key = request.args.get("search_key")
     # if key is empty, return all restaurants
     if not search_key:
         command = "select id, name, type, address_street, address_city, phone_number from Restaurant"
     # else, search restaurant with this name/city address/type
     else:
         command = "SELECT id, name, type, address_street, address_city, phone_number FROM Restaurant WHERE name='" \
-             + search_key + "' OR address_city='" + search_key + "' OR type='" + search_key + "'"
+                  + search_key + "' OR address_city='" + search_key + "' OR type='" + search_key + "'"
     mycursor.execute(command)
     myresult = mycursor.fetchall()
     restaurants = []
@@ -106,9 +164,12 @@ def restaurants_search():
         restaurant_dict["address_city"] = restaurant['address_city']
         restaurant_dict["phone_number"] = restaurant['phone_number']
         restaurants.append(restaurant_dict)
+        mydb.close()
     return json.dumps(restaurants)
 
+
 def dict_of_restaurant_name_menu(restaurant):
+    mydb, mycursor = connect_to_mysql()
     restaurant_id = restaurant['id']
     restaurant_name = restaurant['name']
     dict = {'restaurant_name': restaurant_name}
@@ -120,15 +181,16 @@ def dict_of_restaurant_name_menu(restaurant):
         category_dict = {}
         category_id = category['id']
         category_name = category['category_name']
-        category_dict['name']= category_name
+        category_dict['name'] = category_name
         # get items
-        mycursor.execute("SELECT item_name, item_description, item_price FROM menu_items WHERE category_id=" + str(category_id))
+        mycursor.execute(
+            "SELECT item_name, item_description, item_sizes, item_choices, item_price FROM menu_items WHERE category_id=" + str(category_id))
         myresult = mycursor.fetchall()
-        category_dict['menu_itemss'] = myresult
+        category_dict['menu_items'] = myresult
         categories.append(category_dict)
-    dict['categories']= categories
+    dict['categories'] = categories
+    mydb.close()
     return dict
 
-if __name__ == '__main__':
-   app.run(debug = True)
-
+# if __name__ == '__main__':
+#   app.run(debug = True)
