@@ -22,7 +22,7 @@
         function add_restaurant() {
             // open html request to server 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://naomiegleizer.pythonanywhere.com/add_restaurant", true);
+            xhr.open("POST", "http://naomiegleizer.pythonanywhere.com/add_restaurant", true);
             // sevrver returns an answer 
             xhr.onreadystatechange = function () {
                 // if server accepted request, alert and return to index page

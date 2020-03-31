@@ -44,11 +44,12 @@
 }
 
 .category_name {
-  text-decoration-line:overline;
-  text-decoration-style:dotted;
   text-align: center;
   height:5%;
+  width:90%;
   font-size:x-large;
+  border-top:2px dotted;
+  margin:auto;
   margin-top:5%;
 }
 

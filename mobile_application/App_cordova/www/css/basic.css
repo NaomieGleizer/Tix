@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    background-color: #a4efe126;
+    background-color: #e0faf5;
     font-family: 'Segoe UI';
     margin: auto;
     display: inline-block;
@@ -31,6 +31,7 @@ h4 {
 }
 
 .logo {
+    content:url("../images/logo.png");
     height: 10%;
     margin-left: 2%;
 }

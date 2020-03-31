@@ -14,7 +14,7 @@
 .items_found {
     font-size:large;
     text-align:right;
-    color:#00ffd078;
+    color:#43f5d4;
 }
 
 
@@ -34,7 +34,7 @@ a{
 .restaurant_details_wrapper {
     width:90%;
     font-family: TakeawaySans, sans-serif;
-    background-color: #00ffd0d6;
+    background-color: #1dfcd3;
     background-image:url("../images/food_background.png");
     padding:4%;
     border-radius: 9px;
