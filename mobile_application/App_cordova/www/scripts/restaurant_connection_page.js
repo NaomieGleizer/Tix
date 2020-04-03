@@ -148,7 +148,7 @@ function load_menu(data) {
             // item description                            
             var item_description = document.createElement("div");
             item_description.className = "item_description";
-            item_description.innerHTML = category.menu_items[j].item_description;
+                item_description.innerHTML = category.menu_items[j].item_description;
             item_content.appendChild(item_description);
             id++;
         }
