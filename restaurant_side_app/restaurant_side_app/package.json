@@ -1,0 +1,26 @@
+{
+  "name": "restaurant_side_app",
+  "version": "0.0.0",
+  "description": "restaurant_side_app",
+  "main": "app.js",
+  "author": {
+    "name": "naomie"
+  },
+  "dependencies": {
+    "electron": "^8.0.2"
+  },
+  "configurations": [
+    {
+      "name": "Debug Main Process",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "windows": {
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+      },
+      "args": [ "." ],
+      "outputCapture": "std"
+    }
+  ]
+}

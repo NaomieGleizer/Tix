@@ -1,0 +1,47 @@
+﻿#top_buttons {
+    width:80%;
+    display:flex;
+    margin:auto;
+}
+
+button {
+    background-color: #66CDAA;
+    text-align: center;
+    color: white;
+    border: none;
+    height: 40px;
+    width: auto;
+    border-radius: 7px;
+}
+
+#edit_restaurant_details {
+    margin-left:auto;
+}
+
+#restaurant_name {
+    text-align: center;
+}
+
+table {
+    width:80%;
+    margin:auto;
+    direction:rtl;
+    color:white;
+}
+
+th {
+    background-color: #3db88c;
+}
+
+th, td {
+    text-align: right;
+    padding: 8px;
+}
+
+tr {
+    background-color: #d2f9eb;
+}
+
+tr:nth-child(even) {
+    background-color: #b0f4dd
+}

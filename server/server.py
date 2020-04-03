@@ -2,8 +2,7 @@ import mysql.connector
 import json
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
+
 
 app = Flask(__name__)
 # app.run(debug = True)
