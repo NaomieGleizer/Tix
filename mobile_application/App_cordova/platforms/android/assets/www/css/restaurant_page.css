@@ -1,0 +1,34 @@
+a {
+    height:10%;
+}
+.restaurant_details_div {
+    text_align:center;   
+    direction:rtl;
+    height:100%;
+    width:95%;
+    margin:auto;
+    margin-top:5%;
+    color:#05a386;
+    font-size:large;
+}
+
+#restaurant_name {
+    font-size:x-large;
+    margin:auto;
+    text_align:center;
+}
+
+#address_and_phone {
+    display:flex;
+    margin-top:2%;
+}
+
+#restaurant_address {
+    font-size:medium;
+
+}
+
+#restaurant_phone {
+    font-size:medium;
+    margin-right:3%;
+}

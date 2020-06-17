@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/search_restaurants.css">
+    <link rel="stylesheet" type="text/css" href="css/basic.css">
+    <script src="scripts/search_restaurants.js"></script>
+    <title>search restaurents</title>
+</head>
+<body>
+    <a href="index.html">
+        <img id="logo" class="logo"/>
+    </a>
+   <div class="wrap_search">
+       <div class="search">
+          <button type="submit" id="searchButton" class="searchButton">חפש</button>
+          <input type="text" id="searchTerm" class="searchTerm" placeholder="הכנס שם מסעדה/יישוב">
+       </div>
+    </div>
+    <div class="wrap_categories">
+        <button class="coffee" onclick="category_search('בית קפה')">בתי קפה</button>
+        <button class="italian" onclick="category_search('איטלקי')">איטלקי</button>
+        <button class="meat" onclick="category_search('בשרים')">בשרים</button>
+        <button class="asian" onclick="category_search('אסיאתי')">אסיאתי</button>
+        <button class="fish" onclick="category_search('דגים')">דגים</button>
+        <button class="home_food" onclick="category_search('אוכל ביתי')">אוכל ביתי</button>   
+    </div>
+</body>
+</html>
