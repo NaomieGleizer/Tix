@@ -5,25 +5,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // load num of items in order 
     load_num_of_items_in_order();
     // if page has been load already before, load menu
-    if (sessionStorage.getItem("restaurant_menu")) {
-        data = JSON.parse(sessionStorage.getItem("restaurant_menu"));
+    if (sessionStorage.getItem("restaurant_details")) {
+        data = JSON.parse(sessionStorage.getItem("restaurant_details"));
         show_menu(data);
     }
     // else, sent a request to server to get menu
     else {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "http://naomiegleizer.pythonanywhere.com/identify_restaurant_nfc", true);
+
         // sevrver returns an answer 
         xhr.onreadystatechange = function () {
             // if server accepted request, alert and return to index page
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var data = JSON.parse(xhr.responseText);
-                sessionStorage.setItem("restaurant_menu", JSON.stringify(data));
+                sessionStorage.setItem("restaurant_details", JSON.stringify(data));
+                sessionStorage.setItem("restaurant_id", JSON.stringify(data["restaurant_id"]));                
                 show_menu(data);
             }
         }
-        //     xhr.setRequestHeader("Origin", 'naomie');
-        //     xhr.withCredentials = true;
+
         xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
         xhr.send(nfc_code);
     }
@@ -331,7 +332,6 @@ function show_menu(data) {
         var category_tr = document.createElement("tr");
         var catrgory_th = document.createElement("td");
         catrgory_th.setAttribute("class", "category_name");
-        catrgory_th.style.width = '100%';
         catrgory_th.appendChild(document.createTextNode(String(category.name)));
         category_tr.appendChild(catrgory_th);
         table_menu.appendChild(category_tr);
@@ -349,6 +349,7 @@ function show_menu(data) {
                 var linebreak = document.createElement("br");
                 td_meal.appendChild(linebreak);
                 var span = document.createElement('span');
+                span.className = "item_description";
                 span.style.fontSize = "12px";
                 span.appendChild(document.createTextNode(category.menu_items[j].item_description));
                 td_meal.appendChild(span);
@@ -357,7 +358,7 @@ function show_menu(data) {
             // meal price 
             var td_price = document.createElement("td");
             td_price.style.width = '15%';
-            td_price.setAttribute("class", "item_name");
+            td_price.setAttribute("class", "item_price");
             td_price.setAttribute("id", "item_price" + String(id));
             td_price.appendChild(document.createTextNode(category.menu_items[j].item_price + "₪"));
             meal_tr.appendChild(td_price);

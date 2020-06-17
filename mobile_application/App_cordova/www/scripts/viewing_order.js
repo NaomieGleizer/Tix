@@ -1,5 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", function (event) {
-    meals = JSON.parse(sessionStorage.getItem("client_order_meals"));
+document.addEventListener("DOMContentLoaded", function (event) {
+    var meals = JSON.parse(sessionStorage.getItem("client_order_meals"));
     document.getElementById("rest_name").innerHTML = sessionStorage.getItem("restaurant_name");
     var i;
     var total_price = 0;
@@ -69,6 +69,12 @@
             id += 1;
         }
     }
+    
+    // already sent order
+    if (sessionStorage.getItem("client_sent_order")) {
+        already_sent_order();
+    }
+
     // update total price
     document.getElementById("total_price").innerHTML = "סכום כולל: " + String(total_price) + "₪";
     sessionStorage.setItem("total_price", total_price);
@@ -80,7 +86,37 @@
     document.getElementById("paying")
         .addEventListener("click", paying);
 
+    document.getElementById("order")
+        .addEventListener("click", ordering);
+
 });
+
+// already sent order
+function already_sent_order() {
+    var old_order = JSON.parse(sessionStorage.getItem("client_sent_order"));
+    var sent_order_div = document.getElementById("sent_order_div");
+    var sent_order_title = document.createElement("div");
+    sent_order_title.innerHTML = "הזמנות שנשלחו:";
+    sent_order_title.setAttribute("style", "text-align:center; font-weight: bold; margin-bottom:5%;");
+    sent_order_div.appendChild(sent_order_title);
+    for (var meal in old_order) {
+        for (i in old_order[meal]) {
+            var div_meal = document.createElement("div");
+            div_meal.style.display = "flex";
+            div_meal.className = "div_meal"
+            sent_order_div.appendChild(div_meal);
+            var div_meal_name = document.createElement("div");
+            div_meal_name.innerHTML = meal + ' ' + String(old_order[meal][i][1]) + 'x';
+            div_meal_name.style.width = "80%";
+            var div_meal_price = document.createElement("div");
+            div_meal_price.innerHTML = String(old_order[meal][i][0]) + "₪";
+            div_meal_price.setAttribute("style", "text-align:center; width:20%;");
+            div_meal.appendChild(div_meal_name);
+            div_meal.appendChild(div_meal_price);
+        }
+    }
+}
+
 
 // back to menu
 function back_to_menu() {
@@ -156,3 +192,44 @@ function remove_item_from_order(button_element, meals, meal, meal_name, comments
     var num_of_items = sessionStorage.getItem("num_of_items") - 1;
     sessionStorage.setItem("num_of_items", num_of_items);
 }
+
+
+function ordering() {
+    var restaurant_id = JSON.parse(sessionStorage.getItem("restaurant_id"));
+    var meals = JSON.parse(sessionStorage.getItem("client_order_meals"));
+    if (meals)
+    var order_to_send = {"restaurant_id":restaurant_id, "table_id":"1","order":meals};
+    var xhr = new XMLHttpRequest();
+    
+    xhr.open("POST", "http://naomiegleizer.pythonanywhere.com/new_order", true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    // sevrver returns an answer 
+    xhr.onreadystatechange = function () {
+        // if server accepted request, alert and return to index page
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            sessionStorage.removeItem("client_order_meals");
+            sessionStorage.removeItem("num_of_items");
+            if (sessionStorage.getItem("client_sent_order")) {
+                var old_order = JSON.parse(sessionStorage.getItem("client_sent_order"));
+                for (meal in meals) {
+                    if (meal in old_order) {
+                        old_order[meal] = old_order[meal].concat(meals[meal]);                        
+                    }
+                    else {
+                        old_order[meal] = old_order[meal];
+                    }
+                }
+                sessionStorage.setItem("client_sent_order", JSON.stringify(old_order));
+            }
+            else {
+                sessionStorage.setItem("client_sent_order", JSON.stringify(meals));
+            }
+            alert("ההזמנה בוצעה");
+            back_to_menu();
+        }
+    }
+    xhr.send(JSON.stringify(order_to_send));
+
+
+}
+ 

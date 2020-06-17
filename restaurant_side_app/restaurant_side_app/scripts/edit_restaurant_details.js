@@ -191,7 +191,7 @@ function update_changes() {
     xhr.open("POST", "http://naomiegleizer.pythonanywhere.com/restaurant_side_update_details?restaurant_id=" + restaurant_id, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
-        // if server accepted request, go to restaurant page
+        // if server accepted request,
         if (xhr.readyState === 4 && xhr.status === 200) {
             alert("השינויים נשמרו בהצלחה");
         }

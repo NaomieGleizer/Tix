@@ -1,9 +1,6 @@
-
-h1 {
-    text-align: center;
-    font-family: 'Segoe UI';
-    margin: 0%;
-    color: #00b593;
+#rest_name {
+    color:#00b593;
+    text-align:center;;
 }
 
 .logo_wrapper {
@@ -16,22 +13,10 @@ h1 {
     height:100%;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    background-color: #a4efe126;
-    font-family: 'Segoe UI';
-    margin: auto;
-    display: inline-block;
-    overflow: auto;
-}
 
 
-h4 {
-    color: #58e8b6;
-    text-align: center;
-    font-family: 'Segoe UI';
-    margin: auto;
+#total_price {
+   margin-top:5%; 
 }
 
 h3 {
@@ -41,16 +26,9 @@ h3 {
     margin: auto;
 }
 
-.logo {
-    height: 80%;
-}
 
-.wrapper {
-    height: 100%;
-    margin-top: auto;
-    margin-bottom: 10%;
-    margin-left: auto;
-    margin-right: auto;
+#wrapper {
+    margin:auto;
     width: 95%;
     display: block;
 }
@@ -69,13 +47,13 @@ h3 {
 
 .div_order {
     margin-top: 10%;
+    margin-bottom:5%;
 }
 
 .btns {
-    margin-bottom: 10%;
     text-align: center;
     height: 6%;
-    bottom: 15px;
+    bottom: 2%;
     position: absolute;
     justify-content: center;
     width: 100%;
@@ -107,4 +85,21 @@ th, td {
 th {
     background-color: #58e8b6;
     color: white;
+}
+
+#order {
+   margin:auto;
+   width:90%;
+}
+
+#order_btn_div {
+    display:flex;
+    margin-top:5%;
+    margin:auto;
+}
+
+#sent_order_div {
+    direction:rtl;
+    color: #58e8b6;
+    margin-top:10%;
 }

@@ -10,7 +10,7 @@
     margin-bottom:10%;
     margin-left:auto;
     margin-right:auto;
-    width:100%;
+    width:95%;
     display:block;
 }
 
@@ -64,9 +64,6 @@
   font-size:medium;
 }
 
-
-
-
 .add_btn {
     border-radius: 15px;
     width:100%;
@@ -83,6 +80,7 @@ div.top_btn {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
+    background-color:#e0faf5;
 }
 
 #my_order {
@@ -119,9 +117,10 @@ div.top_btn {
 .category_name {
     text-align: center;
     height: 5%;
-    width: 100%;
+    width: 90%;
     font-size: x-large;
     border-top: 2px dotted;
+    margin:auto;
     margin-top: 5%;
     display: block;
 }

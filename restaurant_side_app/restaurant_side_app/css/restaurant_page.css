@@ -39,9 +39,9 @@ th, td {
 }
 
 tr {
-    background-color: #d2f9eb;
+    background-color: #87efcb;
 }
 
 tr:nth-child(even) {
-    background-color: #b0f4dd
+    background-color: #8bdac0;
 }
