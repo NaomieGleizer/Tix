@@ -1,0 +1,65 @@
+{
+  "_from": "phonegap-nfc",
+  "_id": "phonegap-nfc@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-FlJ5EEvlDh38pyFJY3bOwGgSwcQ64RbWUWC6uXwLe5WU/0VyFa7VTMZ1japzJtNP8gcb+yQ4EGQTP8kg+kxlAg==",
+  "_location": "/phonegap-nfc",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "phonegap-nfc",
+    "name": "phonegap-nfc",
+    "escapedName": "phonegap-nfc",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/phonegap-nfc/-/phonegap-nfc-1.1.1.tgz",
+  "_shasum": "c8674ed537b8178662280381c7eb4b8f5e9f0311",
+  "_spec": "phonegap-nfc",
+  "_where": "C:\\final_project\\nfc_reader\\Tix\\mobile_application\\App_cordova",
+  "author": {
+    "name": "Don Coleman",
+    "email": "don.coleman@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/chariotsolutions/phonegap-nfc/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "phonegap-nfc",
+    "platforms": [
+      "android",
+      "wp8",
+      "windows",
+      "blackberry10",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Near Field Communication (NFC) Plugin. Read and write NDEF messages to NFC tags and share NDEF messages with peers.",
+  "homepage": "https://github.com/chariotsolutions/phonegap-nfc#readme",
+  "keywords": [
+    "nfc",
+    "ndef",
+    "ecosystem:cordova",
+    "cordova",
+    "cordova-android",
+    "cordova-wp8",
+    "cordova-windows",
+    "cordova-blackberry10",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "phonegap-nfc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chariotsolutions/phonegap-nfc.git"
+  },
+  "version": "1.1.1"
+}
