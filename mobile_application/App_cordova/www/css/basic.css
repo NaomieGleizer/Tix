@@ -11,10 +11,10 @@ html, body {
 button {
     border: none;
     border-radius: 35px;
-    background: #00ffd0;
+    background: #58e8b6;
     color: white;
     font-family: 'Segoe UI';
-    border: 1px solid #85ffcc;
+    border: 1px solid #58e8b6;
 }
 
     button:hover {
@@ -35,3 +35,5 @@ h4 {
     height: 10%;
     margin-left: 2%;
 }
+
+

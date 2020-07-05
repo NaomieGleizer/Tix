@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var data = JSON.parse(xhr.responseText);
                 sessionStorage.setItem("restaurant_details", JSON.stringify(data));
-                sessionStorage.setItem("restaurant_id", JSON.stringify(data["restaurant_id"])); 
+                sessionStorage.setItem("restaurant_id", JSON.stringify(data["restaurant_id"]));
                 show_menu(data);
             }
         }
@@ -38,12 +38,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 // exit from order
 function exit_function() {
-        var txt;
-        if (confirm("האם ברצונך להתנתק?")) {
-            // clear session storage before exit
-            sessionStorage.clear();
-            window.location.href = "index.html"; 
-        }
+    var txt;
+    if (confirm("האם ברצונך להתנתק?")) {
+        // clear session storage before exit
+        sessionStorage.clear();
+        window.location.href = "index.html";
+    }
 }
 
 // if there are items in order, load them
@@ -171,6 +171,7 @@ function add_size_and_choices_form(id, meal, adding_item_div) {
             option.setAttribute("value", description);
             label = document.createElement("label");
             label.setAttribute("for", "size");
+            label.style.fontSize = "15px";
             text = document.createTextNode(description);
             linebreak = document.createElement("br");
             label.appendChild(option);
@@ -192,6 +193,7 @@ function add_size_and_choices_form(id, meal, adding_item_div) {
             option.setAttribute("value", description);
             label = document.createElement("label");
             label.setAttribute("for", "choice");
+            label.style.fontSize = "15px";
             text = document.createTextNode(description);
             linebreak = document.createElement("br");
             label.appendChild(option);
@@ -204,6 +206,7 @@ function add_size_and_choices_form(id, meal, adding_item_div) {
     // button for adding meal to order
     adding_item_div.appendChild(sizes_choices_form)
     var add_btn = document.createElement("BUTTON");
+    
     add_btn.setAttribute("id", "add_item" + String(id));
     add_btn.setAttribute("class", "add_to_order");
     add_btn.onclick = (function () {
@@ -217,6 +220,7 @@ function add_size_and_choices_form(id, meal, adding_item_div) {
     adding_item_div.appendChild(add_btn);
     // button for closing adding meal  
     var close_btn = document.createElement("BUTTON");
+
     close_btn.setAttribute("id", "close_btn" + String(id));
     close_btn.setAttribute("class", "add_to_order");
     close_btn.onclick = (function () {
@@ -233,7 +237,7 @@ function add_size_and_choices_form(id, meal, adding_item_div) {
 // select size and choices for meal
 function select_size_and_choices(button_element) {
     document.getElementById("select_div" + button_element.id).style.display = "table";
-    
+
 }
 
 // close adding meal div
@@ -247,7 +251,7 @@ function show_menu(data) {
     restaurant_name = data.restaurant_name;
     sessionStorage.setItem("restaurant_connection_name", restaurant_name);
     welcome.innerHTML = " ברוכים הבאים ל" + restaurant_name;
-    var scrollable_menu_div = document.getElementById("scrollmenu");
+    //var scrollable_menu_div = document.getElementById("scrollmenu");
     var active = true;
     var table_menu = document.createElement("table");
     table_menu.setAttribute("id", "menu_table");
@@ -272,7 +276,7 @@ function show_menu(data) {
             active = false;
         }
         a_href_category.innerHTML = category.name;
-        scrollable_menu_div.appendChild(a_href_category);
+        //scrollable_menu_div.appendChild(a_href_category);
         // go over meals in category and add to table
         for (j in category.menu_items) {
             var meal_tr = document.createElement("tr");
@@ -287,21 +291,31 @@ function show_menu(data) {
                 var linebreak = document.createElement("br");
                 td_meal.appendChild(linebreak);
                 var span = document.createElement('span');
-                span.style.fontSize = "12px";
+                span.style.fontSize = "15px";
+                span.style.fontWeight = "normal"
                 span.appendChild(document.createTextNode(category.menu_items[j].item_description));
                 td_meal.appendChild(span);
             }
             meal_tr.appendChild(td_meal);
             // meal price 
             var td_price = document.createElement("td");
-            td_price.style.width = '15%';
-            td_price.setAttribute("class", "item_name");
+            td_price.style.width = '17%';
+            td_price.setAttribute("class", "item_price");
             td_price.setAttribute("id", "item_price" + String(id));
-            td_price.appendChild(document.createTextNode(category.menu_items[j].item_price + "₪"));
+
+
+            span = document.createElement('span');
+            span.style.textAlign = "left";
+            span.appendChild(document.createTextNode(category.menu_items[j].item_price + "₪"));
+
+            td_price.appendChild(span)
+
+
+            //td_price.appendChild(document.createTextNode(category.menu_items[j].item_price + "₪"));
             meal_tr.appendChild(td_price);
             // adding meal to order button
             var td_add_btn = document.createElement("td");
-            td_add_btn.style.width = '10%';
+            td_add_btn.style.width = '8%';
             td_add_btn.setAttribute("class", "add");
             var add_btn = document.createElement("BUTTON");
             add_btn.setAttribute("id", String(id));

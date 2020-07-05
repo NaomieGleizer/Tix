@@ -1,5 +1,5 @@
 ﻿document.addEventListener("DOMContentLoaded", function (event) {
-    meals = JSON.parse(sessionStorage.getItem("client_order_meals"));
+    meals = JSON.parse(sessionStorage.getItem("client_sent_order"));
     document.getElementById("rest_name").innerHTML = sessionStorage.getItem("restaurant_name");
     // create table for purchase summary
     var tr_title = document.createElement("TR");
@@ -13,12 +13,12 @@
     document.getElementById("titles").appendChild(th1);
     var th2 = document.createElement("TH");
     th2.style.width = '20%';
-    var text = document.createTextNode("כמות");
+    text = document.createTextNode("כמות");
     th2.appendChild(text);
     document.getElementById("titles").appendChild(th2);
     var th3 = document.createElement("TH");
     th3.style.width = '20%';
-    var text = document.createTextNode("מחיר");
+    text = document.createTextNode("מחיר");
     th3.appendChild(text);
     document.getElementById("titles").appendChild(th3);
     var i;
@@ -34,7 +34,7 @@
             // meal name
             td_meal.setAttribute("id", "meal" + String(id));
             td_meal.style.width = '60%';
-            var text = document.createTextNode(meal);
+            text = document.createTextNode(meal);
             td_meal.appendChild(text);
             var comments = "";
             // if there is size to meal, add to comments 
@@ -43,13 +43,13 @@
             }
             // if there is choice to meal, add to comments 
             if (meals[meal][i][4]) {
-                if (comments != "") {
+                if (comments !== "") {
                     comments += ", "
                 }
                 comments += "עם " + String(meals[meal][i][4]);
             }
             // if there are comments, add to table
-            if (comments != "") {
+            if (comments !== "") {
                 var linebreak = document.createElement("br");
                 td_meal.appendChild(linebreak);
                 var comments_text = document.createTextNode(comments);

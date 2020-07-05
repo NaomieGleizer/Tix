@@ -23,7 +23,7 @@
 23    android:versionName="1.0" >
 24
 25    <uses-sdk android:minSdkVersion="14" />
-25-->C:\final_project\nfc_reader\Tix\mobile_application\App_cordova\platforms\android\CordovaLib\AndroidManifest.xml:22:5-44
-25-->C:\final_project\nfc_reader\Tix\mobile_application\App_cordova\platforms\android\CordovaLib\AndroidManifest.xml:22:15-41
+25-->C:\final_project\updated_nfc\Tix\mobile_application\App_cordova\platforms\android\CordovaLib\AndroidManifest.xml:22:5-44
+25-->C:\final_project\updated_nfc\Tix\mobile_application\App_cordova\platforms\android\CordovaLib\AndroidManifest.xml:22:15-41
 26
 27</manifest>

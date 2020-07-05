@@ -1,4 +1,5 @@
 #logo {
+    content: url("../images/logo.png");
     text-align: center;
     height: auto;
     width: 20%;
@@ -6,10 +7,8 @@
 
 .wrapper {
     height: 100%;
-    margin-top: auto;
+    margin: auto;
     margin-bottom: 10%;
-    margin-left: auto;
-    margin-right: auto;
     width: 95%;
     display: block;
 }
@@ -22,9 +21,10 @@
 }
 
 #menu {
-    margin-top: 10%;
+    margin: auto;
+    direction: rtl;
+    margin-top: 5%;
     height: 100%;
-    width: 100%;
     color: #02c09d;
 }
 
@@ -38,12 +38,20 @@
 
 .item_content {
     display: block;
-    width: 100%;
+    width: 90%;
     margin: auto;
     margin-left: 5%;
     font-size: large;
 }
 
+.category_name {
+    text-align: center;
+    height: 5%;
+    font-size: x-large;
+    border-top: 2px dotted;
+    margin: auto;
+    margin-top: 5%;
+}
 
 
 .name_price_div {
@@ -52,16 +60,28 @@
 
 .item_name {
     text-align: right;
+    font-size: large;
+    font-weight: bold;
 }
 
-.item_price {
-    margin-right: auto;
-    text-align: center;
+
+
+input {
+    font-size: 15px;
 }
 
 .item_description {
     color: #0f7f6a;
     font-size: medium;
+    font-size: large;
+}
+
+
+.add {
+    text-align: center;
+    width: 10%;
+    height: 100%;
+    margin: auto;
 }
 
 .add_btn {
@@ -102,11 +122,11 @@ div.top_btn {
 
 
 .add_to_order {
-    border-radius: 15px;
+    border-radius: 18px;
     text-align: center;
     font-size: large;
     text-align: center;
-    font-size: 80%;
+    font-size: 100%;
 }
 
 
@@ -149,4 +169,11 @@ label {
 td {
     text-align: right;
     display: inline-block;
+}
+
+
+.item_price {
+    text-align: left;
+    font-size: large;
+    font-weight: bold;
 }
