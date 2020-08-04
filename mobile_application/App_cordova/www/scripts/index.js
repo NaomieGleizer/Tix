@@ -25,3 +25,9 @@
         // TODO: This application has been reactivated. Restore application state here.
     };
 })();
+
+
+//var d = document.getElementById("test");
+//var meal_img = document.createElement("IMG");
+//meal_img.src = "images/shakshuka.png";
+//d.appendChild(meal_img);

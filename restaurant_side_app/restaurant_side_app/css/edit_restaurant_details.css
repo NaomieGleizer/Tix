@@ -37,13 +37,13 @@ button {
     margin-bottom: auto;
 }
 
-#edit_menu {
-    margin-top:2%;
+#edit_menu, #add_menu {
+    margin-top: 2%;
     background-color: #66CDAA;
     color: white;
     border: none;
     width: 10%;
-    padding:0.5%;
+    padding: 0.5%;
 }
 
 #save_changes { 
@@ -91,20 +91,12 @@ input {
     width: 100%;
 }
 
-.item_name {
+.item_name, .item_price, .item_description, .item_choices, .item_sizes, .item_features {
     padding: 0.5%;
-    width: 10%;
     margin-left: 1%;
 }
 
-.item_price {
-    padding: 0.5%;
-    width: 5%;
-    margin-left: 1%;
-}
 
-.item_description {
-    padding: 0.5%;
-        width: 60%;
+.titles {
+    width:15%;
 }
-

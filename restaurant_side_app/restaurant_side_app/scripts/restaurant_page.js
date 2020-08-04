@@ -1,5 +1,5 @@
 ﻿document.addEventListener("DOMContentLoaded", function (event) {
-   
+
     var restaurant_name = JSON.parse(sessionStorage.getItem("restaurant_name"));
     document.getElementById("restaurant_name").innerHTML = restaurant_name;
 
@@ -16,7 +16,7 @@
     if (sessionStorage.getItem("orders")) {
         var orders = JSON.parse(sessionStorage.getItem("orders"));
         var table = document.getElementById("orders_table");
-        for (var i=0; i < orders.length; i++) {           
+        for (var i = 0; i < orders.length; i++) {
             var table_id = orders[i][0];
             var new_row = table.insertRow(1);
             var td_table_id = new_row.insertCell(0);
@@ -30,7 +30,7 @@
     }
 
     window.setInterval(get_orders, 3000);
- });
+});
 
 function get_orders() {
     var restaurant_id = JSON.parse(sessionStorage.getItem("restaurant_id"));
@@ -47,7 +47,7 @@ function get_orders() {
             var data = JSON.parse(xhr.responseText);
             if (data.length > 0) {
                 for (order_i in data) {
-                    table_id = data[order_i].table_id;                        
+                    table_id = data[order_i].table_id;
                     order = data[order_i].order;
                     orders.push([table_id, order]);
                     var new_row = table.insertRow(1);
@@ -59,8 +59,8 @@ function get_orders() {
                         td_table_order.innerHTML += item + ". ";
                     }
                 }
-                sessionStorage.setItem("orders", JSON.stringify(orders));               
-            }                      
+                sessionStorage.setItem("orders", JSON.stringify(orders));
+            }
         }
     }
     xhr.send();

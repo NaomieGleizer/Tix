@@ -4,7 +4,6 @@
         function connect_to_restaurant() {
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "http://naomiegleizer.pythonanywhere.com/restaurant_side_connection", true);
-            
             // sevrver returns an answer 
             xhr.onreadystatechange = function () {
                 // if server accepted request, go to restaurant page

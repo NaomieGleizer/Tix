@@ -26,6 +26,9 @@
     margin-top: 5%;
     height: 100%;
     color: #02c09d;
+
+
+    
 }
 
 .item_div {
@@ -51,6 +54,10 @@
     border-top: 2px dotted;
     margin: auto;
     margin-top: 5%;
+
+
+
+  
 }
 
 
@@ -58,10 +65,12 @@
     display: flex;
 }
 
+
+
 .item_name {
-    text-align: right;
     font-size: large;
     font-weight: bold;
+    direction: rtl;
 }
 
 
@@ -89,34 +98,57 @@ input {
     width: 100%;
     text-align: center;
     font-size: large;
-    text-align: center;
+    
 }
 
-div.top_btn {
+.top_btn {
     margin: auto;
-    height: 10%;
+    /*height: 10%;*/
     direction: rtl;
-    display: flex;
+    display: block;
+    /*display: flex;
     position: sticky;
     position: -webkit-sticky;
+    top: 0;
+    */
     top: 0;
     background-color: #e0faf5;
 }
 
+.sticky_header {
+    margin: auto;
+    direction: rtl;
+    /*display: flex;*/
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background-color: #e0faf5;
+    text-align: center;
+   
+}
+
+
+
+
+
+
 #my_order {
     margin-left: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 50%;
+    top: 0;
+    /*margin-bottom: auto;*/
+    /*height: 50%;*/
     width: 35%;
+    display: inline-block;
 }
 
 #exit {
     margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 50%;
+    margin-top: 10%;
+    /*margin-bottom: auto;*/
+    /*height: 50%;*/
     width: 35%;
+    top: 0;
+
 }
 
 
@@ -125,8 +157,8 @@ div.top_btn {
     border-radius: 18px;
     text-align: center;
     font-size: large;
-    text-align: center;
-    font-size: 100%;
+    
+    /*font-size: 100%;*/
 }
 
 
@@ -156,7 +188,10 @@ div.top_btn {
     width: 100%;
     direction: rtl;
     font-family: 'Segoe UI';
-    margin: 0%;
+
+
+    
+    /*margin: 0%;*/
 }
 
 label {
@@ -176,4 +211,106 @@ td {
     text-align: left;
     font-size: large;
     font-weight: bold;
+}
+
+
+.meal_img {
+    display: block;
+    margin-left: auto;
+    margin-right: 10%;
+    height: 15vw;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.vegi_img {
+    height: 13px;
+    width: 13px;
+    margin-right: 5%;
+    margin-top: 4%;
+    display: inline-block;
+}
+
+.gluten_free_img {
+    height: 13px;
+    width: 15px;
+    margin-right: 5%;
+    margin-top: 4%;
+    display: inline-block;
+}
+
+.vegan_img {
+    height: 13px;
+    width: 15px;
+    margin-right: 5%;
+    margin-top: 4%;
+    display: inline-block;
+}
+
+
+.first_feature {
+    height: 13px;
+    width: 15px;
+    margin-right: 5%;
+    margin-top: 4%;
+    display: inline-block;
+}
+
+.second_feature {
+    height: 13px;
+    width: 15px;
+    margin-right: 1%;
+    margin-top: 4%;
+    display: inline-block;
+}
+
+div.scrollmenu {
+    direction: rtl;
+    white-space: nowrap;
+    margin: auto;
+    display: flex;
+    /*position: sticky;
+    /*position: -webkit-sticky;*/
+    /*top: 10%;*/
+    /*border-color: #02c09d;*/
+    
+}
+
+div.scrollmenu a {
+    font-weight: bold;
+    display: inline-block;
+    color: #02c09d;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.scrollmenu a.active {
+    color: #0f7f6a;
+    font-weight: bold;
+}
+
+
+.filter_btn {
+    background-color: #e0faf5;
+    width: 20%;
+    text-align: center;
+    font-size: small;
+    border: none;
+    color: #0f7f6a;
+    padding: 8px;
+    border-radius: 2px;
+}
+
+.filter_menu {
+    direction: rtl;
+}
+
+
+
+.category_a {
+    display: block;
+    position: relative;
+    top: -300px;
+    visibility: hidden;
 }

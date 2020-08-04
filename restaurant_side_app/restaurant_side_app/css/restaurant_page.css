@@ -22,6 +22,12 @@ button {
     text-align: center;
 }
 
+h2 {
+    margin-top:2%;
+    text-align: center;
+    color: #3db88c;
+}
+
 table {
     width:80%;
     margin:auto;
@@ -39,9 +45,9 @@ th, td {
 }
 
 tr {
-    background-color: #87efcb;
+    background-color: #b0f4dd;
 }
 
-tr:nth-child(even) {
-    background-color: #8bdac0;
-}
+    tr:nth-child(even) {
+        background-color: #66CDAA
+    }

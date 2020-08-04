@@ -22,7 +22,7 @@
             // if there is choice to meal, add to comments
             if (meals[meal][i][4]) {
                 if (comments !== "") {
-                    comments += ", "
+                    comments += ", ";
                 }
                 comments += "עם " + String(meals[meal][i][4]);
             }
@@ -224,6 +224,10 @@ function ordering() {
             else {
                 sessionStorage.setItem("client_sent_order", JSON.stringify(meals));
             }
+
+            // cookies check
+            //setCookie();
+
             alert("ההזמנה בוצעה");
             back_to_menu();
         }
@@ -231,4 +235,48 @@ function ordering() {
     xhr.send(JSON.stringify(order_to_send));
 
 
+}
+
+
+function setCookie() {
+    var expires = "expires=Thu, 03 Sep 2020 00:00:00 UTC;";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    var num_of_orders = getCookie("num_of_orders");
+    if (num_of_orders !== "") {
+        num_of_orders = parseInt(num_of_orders) + 1; 
+    }
+    else {
+        num_of_orders = 1;
+    }
+    var order = String(sessionStorage.getItem("client_sent_order"));
+    var rest_name = String(sessionStorage.getItem("restaurant_connection_name"));
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    var full_date = String(day) + "/" + String(month) + "/" + String(year);
+
+    //order += " " + full_date;
+    
+    document.cookie = "num_of_orders" + "=" + String(num_of_orders) + ";" + expires + "path=/";
+    document.cookie = "order" + String(num_of_orders) + "=" + order + ";" + expires + "path=/";
+    document.cookie = "date" + String(num_of_orders) + "=" + full_date + ";" + expires + "path=/";
+    document.cookie = "rest_name" + String(num_of_orders) + "=" + rest_name + ";" + expires + "path=/";
+}
+
+
+function getCookie(key) {
+    var name = key + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
