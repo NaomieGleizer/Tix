@@ -31,5 +31,6 @@ a {
 #restaurant_phone {
     font-size: medium;
     margin-right: 3%;
+    display :inline-block;
 }
 

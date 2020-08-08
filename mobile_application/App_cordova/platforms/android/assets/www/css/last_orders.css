@@ -1,0 +1,74 @@
+﻿.logo_wrapper {
+    text-align: center;
+    height: 10%;
+}
+
+#logo {
+    margin: auto;
+    height: 100%;
+    content: url("../images/logo.png");
+}
+
+.last_orders_div {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+h2 {
+    color: #58e8b6;
+    text-align: center;
+    font-family: 'Segoe UI';
+    margin: auto;
+}
+
+h1 {
+    color: #58e8b6;
+    text-align: center;
+    font-family: 'Segoe UI';
+    margin: auto;
+}
+
+.last_order_btn {
+    text-align: center;
+    width: 80%;
+    height: 25%;
+    background-color: #e0faf5;
+    border: 2px solid #00b593;
+    color: #00b593;
+    border-radius: 2px;
+    font-size: large;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.div_order {
+    margin-top: 10%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+#order_items {
+    margin-top: 20%;
+    height: 100%;
+    color: #02c09d;
+    width: 100%;
+    direction: rtl;
+    font-family: 'Segoe UI';
+    margin: 0%;
+}
+
+th, td {
+    text-align: right;
+}
+
+th {
+    background-color: #58e8b6;
+    color: white;
+}
+
+#order {
+    margin: auto;
+    width: 90%;
+}

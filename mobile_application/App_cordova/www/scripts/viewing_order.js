@@ -61,7 +61,7 @@
                 var meal_element = meals[meal][i];
                 return function () {
                     remove_item_from_order(button, me, meal_element, meal_name, comments);
-                }
+                };
             })();
             td_btn_remove.appendChild(btn);
             document.getElementById("item" + String(id)).appendChild(td_btn_remove);
@@ -226,7 +226,8 @@ function ordering() {
             }
 
             // cookies check
-            //setCookie();
+            ///////////////////
+            save_order();
 
             alert("ההזמנה בוצעה");
             back_to_menu();
@@ -279,4 +280,28 @@ function getCookie(key) {
         }
     }
     return "";
+}
+
+
+
+function save_order() {
+    var num_of_orders = window.localStorage.getItem("num_of_orders"); 
+    if (num_of_orders === null) {
+        num_of_orders = 1;
+    }
+    else {
+        num_of_orders = parseInt(num_of_orders) + 1;
+    }
+    var order = sessionStorage.getItem("client_sent_order");
+    var rest_name = sessionStorage.getItem("restaurant_connection_name");
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    var full_date = String(day) + "/" + String(month) + "/" + String(year);
+
+    localStorage.setItem("num_of_orders", String(num_of_orders));
+    localStorage.setItem("order" + String(num_of_orders), order);
+    localStorage.setItem("date" + String(num_of_orders), full_date);
+    localStorage.setItem("rest_name" + String(num_of_orders), rest_name);
 }
