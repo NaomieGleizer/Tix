@@ -7,7 +7,7 @@
     "name": "naomie"
   },
   "dependencies": {
-    "electron": "^8.0.2"
+    "electron": "^8.5.1"
   },
   "configurations": [
     {
